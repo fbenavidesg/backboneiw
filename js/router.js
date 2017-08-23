@@ -5,19 +5,22 @@ define([
   'backbone',
   'lib/backbone/backbone-extra',
   'view/partial/menu',
-  'view/home'
-], function($, _, Backbone, BackboneExtra, MenuView, HomeView){
+  'view/home',
+  'view/user'
+], function($, _, Backbone, BackboneExtra, MenuView, HomeView, UserView){
 
   var AppRouter = Backbone.Router.extend({
     routes: {
       // Define some URL routes
       'home': 'showHome',
-      // Default
+      'usuarios': 'showUsers',
       '*actions': 'defaultAction'
     },
     before : function(router, arguments){
-      var menuView = new MenuView();
-      menuView.render();
+      if( $('ul.nav','header').length <= 0 ){
+        var menuView = new MenuView();
+        menuView.render();
+      }
     },
     after: function(router, arguments){
     }
@@ -31,6 +34,11 @@ define([
       homeView.render();
     });
     
+    app_router.on('route:showUsers', function(){
+      var userView = new UserView();
+      userView.render();
+    });
+
     app_router.on('route:defaultAction', function(actions){
       console.log('No route:', actions);
     });
