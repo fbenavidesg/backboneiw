@@ -4,15 +4,29 @@ define([
   'underscore',
   'backbone',
   'lib/backbone/backbone-extra',
+
   'view/partial/menu',
+  
   'view/home',
+  
+  //user
+  'view/user/login',
+  'view/user/register',
+  'view/user/recover',
+
   'view/user'
-], function($, _, Backbone, BackboneExtra, MenuView, HomeView, UserView){
+], function($, _, Backbone, BackboneExtra, MenuView, HomeView, LoginView, RegisterView, RecoverView, UserView){
 
   var AppRouter = Backbone.Router.extend({
     routes: {
       // Define some URL routes
-      'home': 'showHome',
+      '': 'showHome',
+
+      //user
+      'ingresar': 'login',
+      'crear-cuenta': 'register',
+      'recuperar-contrasena' : 'recover',
+
       'usuarios': 'showUsers',
       '*actions': 'defaultAction'
     },
@@ -33,6 +47,21 @@ define([
       var homeView = new HomeView();
       homeView.render();
     });
+
+    //user
+    app_router.on('route:login', function(){
+      var loginView = new LoginView();
+      loginView.render();
+    });
+    app_router.on('route:register', function(){
+      var registerView = new RegisterView();
+      registerView.render();
+    });
+    app_router.on('route:recover', function(){
+      var recoverView = new RecoverView();
+      recoverView.render();
+    });
+
     
     app_router.on('route:showUsers', function(){
       var userView = new UserView();

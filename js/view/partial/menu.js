@@ -2,8 +2,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'bootstrap',
   'text!../../../template/partial/menu.html'
-], function($, _, Backbone, menuPartialTemplante){
+], function($, _, Backbone, bootstrap, menuPartialTemplante){
   var HomeView = Backbone.View.extend({
     el: $('header'),
     render: function(){
