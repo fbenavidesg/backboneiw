@@ -2,7 +2,7 @@
 
 <div class="panel panel-default">
   <div class="panel-body">
-    <a href="entidad_crear.html"><span class="glyphicon glyphicon-plus"></span> Crear una nueva entidad</a>
+    <a href="#entidadOferente/crear"><span class="glyphicon glyphicon-plus"></span> Crear una nueva entidad</a>
   </div>
 </div>
 
@@ -15,11 +15,11 @@
 			</td>
 		  	<td><h3><a href="#"><%= offerentEntity.name %></a></h3></td>
 			<td>
-				<div><a href="#entidadOferente/<%= offerentEntity.id %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Ver</a></div>
+				<div><a href="#entidadOferente/ver/<%= offerentEntity.id %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Ver</a></div>
 				<div><a href="#entidadOferente/editar/<%= offerentEntity.id %>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar</a></div>
 				<div><a href="#entidadOferente/eliminar/<%= offerentEntity.id %>" class="btn-delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></div>
 				<br />
-				<div><a href="oferentes/<%= offerentEntity.id %>"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuarios <span class="badge"><%= offerentEntity.users %></span></a></a></div>
+				<div><a href="#oferentes/<%= offerentEntity.id %>"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuarios <span class="badge"><%= offerentEntity.users %></span></a></a></div>
 			</td>
 		</tr>	
 		<% }); %>

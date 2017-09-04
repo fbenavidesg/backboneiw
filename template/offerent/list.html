@@ -1,0 +1,30 @@
+<h2>Oferentes</h2>
+
+<div class="panel panel-default">
+	<div class="panel-body">
+	  <a href="#oferente/crear/<%= entity %>"><span class="glyphicon glyphicon-plus"></span> Crear una nuevo ususario</a>
+	</div>
+</div>
+
+<table class="table table-striped"> 
+	<thead>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Correo</th>
+        <th>Acciones</th>
+    </thead>
+    <tbody>
+		<% _.each(offerents, function(offerent) { %>  
+		<tr>
+			<td><%= offerent.first_name %></td>
+		  	<td><%= offerent.last_name %></td>
+		  	<td><%= offerent.mail %></td>
+			<td>
+				<div><a href="#oferente/ver/<%= offerent.id %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Ver</a></div>
+				<div><a href="#oferente/editar/<%= offerent.id %>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar</a></div>
+				<div><a href="#oferente/eliminar/<%= offerent.id %>" class="btn-delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></div>
+			</td>
+		</tr>	
+		<% }); %>
+	</tbody>
+</table>
